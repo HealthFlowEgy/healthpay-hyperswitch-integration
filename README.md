@@ -302,13 +302,51 @@ const payment = await egyptPayments.createPayment({
 📖 **Full Documentation**: [docs/EGYPT_CONNECTORS.md](docs/EGYPT_CONNECTORS.md)
 
 ---
-
 ## 📊 Server Status
 
 | Service | URL | Status |
 |---------|-----|--------|
 | **Hyperswitch API** | http://178.128.196.71:8080 | ✅ Operational |
 | **Control Center** | http://178.128.196.71:9000 | ✅ Running |
+| **PayFac Backend** | http://178.128.196.71:3002 | ✅ Running |
+| **Egypt Connectors** | http://178.128.196.71:3001 | ✅ Running |
 | **Grafana** | http://178.128.196.71:3000 | ✅ Running |
+
+---
+
+## 💼 PayFac Services
+
+The PayFac backend (`src/payfac/`) provides:
+
+- **Settlement Engine** - Daily automated settlement calculation
+- **Payout Service** - InstaPay, Bank Transfer, Wallet payouts
+- **Payment Links** - Zero-integration payment collection with SMS
+- **Sub-Merchant Onboarding** - Complete KYC workflow
+- **SMS Notifications** - Cequens integration for payment link delivery
+
+### Payment Links with SMS
+
+```typescript
+import { PaymentLinkService } from './payfac/payment-links/payment-link.service';
+
+const link = await paymentLinkService.createPaymentLink({
+  amount: 50000, // 500.00 EGP
+  title: 'Lab Test Payment',
+  customerPhone: '+201234567890',
+  sendSms: true,
+  merchantName: 'HealthPay Clinic',
+});
+// SMS sent automatically via Cequens
+```
+
+---
+
+## 🌐 GitHub Repositories
+
+| Repository | Description |
+|------------|-------------|
+| [epop-devops](https://github.com/HealthFlowEgy/epop-devops) | Infrastructure & DevOps |
+| [healthpay-hyperswitch-integration](https://github.com/HealthFlowEgy/healthpay-hyperswitch-integration) | Payment Integration |
+| [epop-checkout](https://github.com/HealthFlowEgy/epop-checkout) | Hosted Checkout (Next.js) |
 
 **Last Updated**: January 2, 2026
