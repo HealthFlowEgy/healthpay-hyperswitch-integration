@@ -267,6 +267,42 @@ The service throws `HttpException` with structured error responses:
 
 ---
 
+## 🇪🇬 Egypt Local Payment Methods
+
+In addition to international card payments via MPGS, this integration includes connectors for Egypt's local payment ecosystem:
+
+| Method | Provider | Type | Use Case |
+|--------|----------|------|----------|
+| **Fawry** | FawryPay | Cash/Reference | 194,000+ retail outlets |
+| **OPay Wallet** | OPay Egypt | E-Wallet/QR | Mobile wallet payments |
+| **Meeza Card** | EBC/UPG | Debit Card | Egypt national card (35M+ users) |
+| **Meeza QR** | EBC/UPG | QR Code | In-store mobile payments |
+| **InstaPay** | EBC/IPN | Bank Transfer | Real-time P2P/P2M transfers |
+
+### Quick Example
+
+```typescript
+import { EgyptPaymentService } from './egypt-connectors';
+
+// Create a Fawry reference code payment
+const payment = await egyptPayments.createPayment({
+  orderId: 'ORDER-123',
+  amount: 150.00,
+  paymentMethod: 'FAWRY',
+  customer: {
+    name: 'أحمد محمد',
+    mobile: '01012345678',
+  },
+  callbackUrl: 'https://api.healthpay.eg/webhooks/egypt/fawry',
+});
+
+// Customer receives reference number to pay at any Fawry outlet
+```
+
+📖 **Full Documentation**: [docs/EGYPT_CONNECTORS.md](docs/EGYPT_CONNECTORS.md)
+
+---
+
 ## 📊 Server Status
 
 | Service | URL | Status |
