@@ -1,0 +1,56 @@
+{
+  "name": "@healthpay/hyperswitch-integration",
+  "version": "1.0.0",
+  "description": "HealthPay Payment Adapter for Hyperswitch - Egypt Payment Gateway Integration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "lint": "eslint \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": [
+    "healthpay",
+    "hyperswitch",
+    "payment",
+    "gateway",
+    "egypt",
+    "mpgs",
+    "mastercard",
+    "banque-misr",
+    "nestjs"
+  ],
+  "author": "HealthPay Egypt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HealthFlowEgy/healthpay-hyperswitch-integration.git"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^3.0.0",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.0.0",
+    "axios": "^1.6.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.0.0"
+  }
+}
